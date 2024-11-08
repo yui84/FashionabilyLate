@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    @if (Auth::check())
     <header class="header">
         <div class="header__inner">
             <div class="header-utilities">
@@ -18,7 +19,8 @@
                 <nav>
                     <ul class="header-nav">
                         <li class="header-nav__item">
-                            <form class="logout-form" action="">
+                            <form class="logout-form" action="/logout" method="post">
+                                @csrf
                                 <button class="header-nav__button">logout</button>
                             </form>
                         </li>
@@ -133,7 +135,7 @@
 
         </div>
     </main>
-
+    @endif
 </body>
 
 </html>

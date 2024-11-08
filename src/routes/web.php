@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 
 /*
@@ -15,11 +14,17 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/register', [UserController::class, 'register']);
-Route::get('/login', [UserController::class, 'login']);
-Route::get('/admin', [UserController::class, 'admin']);
 
+//管理画面表示
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [ContactController::class, 'admin']);
+});
 
+//問い合わせフォーム表示
 Route::get('/', [ContactController::class, 'index']);
+
+//問い合わせ確認にデータ送信・問い合わせ確認表示
 Route::post('/confirm', [ContactController::class, 'confirm']);
+
+//DBにデータ送信・thanks表示
 Route::post('/thanks', [ContactController::class, 'store']);

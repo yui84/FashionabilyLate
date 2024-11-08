@@ -35,7 +35,7 @@
             </div>
 
             <!--formの記述-->
-            <form class="form" action="/admin" method="post">
+            <form class="form" action="/login" method="post">
             @csrf
 
                 <!--form:メールアドレス-->
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input type="email" name="email" placeholder="例:test@example.com">
+                            <input type="email" name="email" placeholder="例:test@example.com" value="{{ old('email') }}">
                         </div>
                         <div class="form__error">
                             @error('email')
