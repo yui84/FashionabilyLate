@@ -1,0 +1,45 @@
+body {
+    margin: 0 auto;
+    padding: 50px;
+    max-width: 1230px;
+    height: 300px;
+}
+
+.thanks__content {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center;
+    color: #9f7a4e;
+    font-family: serif;
+}
+
+.thanks__content::before {
+    content: "Thank you";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    color: rgba(153, 151, 151, 0.1);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.form__button {
+    padding: 5px 10px;
+}
+
+.form__button-submit {
+    padding: 5px 10px;
+    display: inline-block;
+    width: 10%;
+    border: none;
+    border-radius: 3px;
+    background: #615724;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
