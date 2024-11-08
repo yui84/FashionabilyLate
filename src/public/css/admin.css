@@ -25,15 +25,18 @@ h1 {
 
 .header-nav__item {
     list-style: none;
+    width: 100px;
+    height: 30px;
 }
 
-.header-nav__link {
-    text-decoration: none;
-    padding: 5px 20px;
+.header-nav__button {
+    width: 100%;
+    height: 30px;
     border: 1px solid #c5b6a3;
     border-radius: 3px;
     background: #f0ece7da;
     color: #c5b6a3;
+    cursor: pointer;
 }
 
 .admin__content {

@@ -18,7 +18,9 @@
                 <nav>
                     <ul class="header-nav">
                         <li class="header-nav__item">
-                            <a class="header-nav__link">logout</a>
+                            <form class="logout-form" action="">
+                                <button class="header-nav__button">logout</button>
+                            </form>
                         </li>
                     </ul>
                 </nav>

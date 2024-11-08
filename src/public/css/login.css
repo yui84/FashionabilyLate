@@ -74,7 +74,7 @@ h1 {
 }
 
 .form__input--text input {
-    height: 20px;
+    height: 40px;
     padding: 10px;
     width: 100%;
     border: none;
