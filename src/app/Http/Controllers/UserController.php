@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class UserController extends Controller
 {
@@ -18,6 +19,8 @@ class UserController extends Controller
 
     public function admin()
     {
-        return view('admin');
+        $contacts = Contact::all();
+
+        return view('admin', compact('contacts'));
     }
 }

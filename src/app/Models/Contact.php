@@ -21,6 +21,11 @@ class Contact extends Model
         'detail'
     ];
 
+    protected $casts = [
+    'gender' => 'integer',
+    'category_id' => 'integer'
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

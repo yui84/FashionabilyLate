@@ -81,22 +81,41 @@
                             </th>
                         </div>
                     </tr>
+                    @foreach ($contacts as $contact)
                     <tr class="admin-table__row">
                         <div class="admin-table__item">
                             <form class="detail-form">
                                 <div class="detail-form__item">
                                     <td class="detail-form__item-name">
-                                        <input class="detail-form__item-input" type="text" name="first_name" value="test">
-                                        <input class="detail-form__item-input" type="text" name="last_name" value="test">
+                                        <p class="detail-form__item--name">{{ $contact['first_name'] }}</p>
+                                        <p class="detail-form__item--name">{{ $contact['last_name'] }}</p>
                                     </td>
                                     <td class="detail-form__item-name">
-                                        <input class="detail-form__item-input" type="text" name="gender" value="test">
+                                        <p class="detail-form__item--gender">
+                                            @if ($contact->gender == 1)
+                                            男性
+                                            @elseif ($contact->gender == 2)
+                                            女性
+                                            @else
+                                            その他
+                                        @endif</p>
                                     </td>
                                     <td class="detail-form__item-name">
-                                        <input class="detail-form__item-input" type="text" name="email" value="test">
+                                        <p class="detail-form__item--email">{{ $contact['email'] }}</p>
                                     </td>
                                     <td class="detail-form__item-name">
-                                        <input class="detail-form__item-input" type="text" name="category_id" value="test">
+                                        <p class="detail-form__item--cat">
+                                            @if ($contact->category_id == 1)
+                                            商品のお届けについて
+                                            @elseif ($contact->category_id == 2)
+                                            商品の交換について
+                                            @elseif ($contact->category_id == 3)
+                                            商品トラブル
+                                            @elseif ($contact->category_id == 4)
+                                            ショップへのお問い合わせ
+                                            @else
+                                            その他
+                                        @endif</p>
                                     </td>
                                 </div>
                                 <td class="detail-form__button">
@@ -105,6 +124,7 @@
                             </form>
                         </div>
                     </tr>
+                    @endforeach
                 </table>
 
             </div>
