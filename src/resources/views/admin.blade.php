@@ -18,7 +18,7 @@
                 <nav>
                     <ul class="header-nav">
                         <li class="header-nav__item">
-                            <a class="header-nav__link" href="/login">logout</a>
+                            <a class="header-nav__link">logout</a>
                         </li>
                     </ul>
                 </nav>
@@ -38,14 +38,14 @@
             <form class="search-form" action="/confirm/search" method="get">
                 @csrf
                 <div class="search-form__item">
-                    <input class="search-form__item-input" type="text" name="keyword" value="{{ old('keyword') }}">
-                    <select class="search-form__iem-select" name="gender">
+                    <input class="search-form__item-input--text" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}">
+                    <select class="search-form__iem-select--gen" name="gender">
                         <option value="">性別</option>
                     </select>
-                    <select class="search-form__iem-select" name="" id="">
+                    <select class="search-form__iem-select--cat" name="" id="">
                         <option value="">お問い合わせの種類</option>
                     </select>
-                    <select class="search-form__iem-select" name="" id="">
+                    <select class="search-form__iem-select--date" name="" id="">
                         <option value="">年/月/日</option>
                     </select>
                 </div>
@@ -55,36 +55,55 @@
                 <div class="reset-form__button">
                     <button class="reset-form__button-submit" type="reset">リセット</button>
                 </div>
-                <!--エクスポートの記述まだ-->
             </form>
-
+            <!--エクスポートの記述まだ-->
             <!--ページネーションの記述まだ-->
 
             <!--送られてきた値を表示するテーブル-->
             <div class="admin-table">
                 <table class="admin-table__inner">
                     <tr class="admin-table__row">
-                        <th class="admin-table__header">
-                            <span class="admin-table__header-span">お名前</span>
-                            <span class="admin-table__header-span">性別</span>
-                            <span class="admin-table__header-span">メールアドレス</span>
-                            <span class="admin-table__header-span">お問い合わせの種類</span>
-                        </th>
+                        <div class="admin-table__header">
+                            <th class="admin-table__header-name">
+                                <span class="admin-table__header-span">お名前</span>
+                            </th>
+                            <th class="admin-table__header-name">
+                                <span class="admin-table__header-span">性別</span>
+                            </th>
+                            <th class="admin-table__header-name">
+                                <span class="admin-table__header-span">メールアドレス</span>
+                            </th>
+                            <th class="admin-table__header-name">
+                                <span class="admin-table__header-span">お問い合わせの種類</span>
+                            </th>
+                            <th class="admin-table__header-name">
+                                <span class="admin-table__header-span"></span>
+                            </th>
+                        </div>
                     </tr>
                     <tr class="admin-table__row">
-                        <td class="admin-table__item">
+                        <div class="admin-table__item">
                             <form class="detail-form">
                                 <div class="detail-form__item">
-                                    <input class="detail-form__item-input" type="text" name="" value="">
-                                    <input class="detail-form__item-input" type="text" name="gender" value="">
-                                    <input class="detail-form__item-input" type="text" name="email" value="">
-                                    <input class="detail-form__item-input" type="text" name="category_id" value="">
+                                    <td class="detail-form__item-name">
+                                        <input class="detail-form__item-input" type="text" name="first_name" value="test">
+                                        <input class="detail-form__item-input" type="text" name="last_name" value="test">
+                                    </td>
+                                    <td class="detail-form__item-name">
+                                        <input class="detail-form__item-input" type="text" name="gender" value="test">
+                                    </td>
+                                    <td class="detail-form__item-name">
+                                        <input class="detail-form__item-input" type="text" name="email" value="test">
+                                    </td>
+                                    <td class="detail-form__item-name">
+                                        <input class="detail-form__item-input" type="text" name="category_id" value="test">
+                                    </td>
                                 </div>
-                                <div class="detail-form__button">
+                                <td class="detail-form__button">
                                     <button class="detail-form__button-submit" type="submit">詳細</button>
-                                </div>
+                                </td>
                             </form>
-                        </td>
+                        </div>
                     </tr>
                 </table>
 

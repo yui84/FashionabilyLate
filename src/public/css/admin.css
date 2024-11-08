@@ -40,7 +40,6 @@ h1 {
     margin: 0 auto;
     padding: 20px 15px;
     max-width: 1230px;
-    height: 500px;
     background: #fff;
     border-top: 1px solid #ddd;
 }
@@ -49,4 +48,87 @@ h1 {
     margin: 0 auto;
     text-align: center;
     color: #857226;
+}
+
+.search-form {
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form__item {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form__item input {
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #f0efef;
+}
+
+.search-form__item-input--text {
+    width: 40%;
+    text-align: center;
+}
+
+.search-form__item select {
+    height: 35px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #f0efef;
+}
+
+.search-form__iem-select--gen {
+    width: 10%;
+}
+
+.search-form__iem-select--cat {
+    width: 25%;
+}
+
+.search-form__iem-select--date {
+    width: 15%;
+}
+
+.search-form__button {
+    width: 10%;
+}
+
+.search-form__button-submit {
+    padding: 5px 10px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    background: #615724;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.reset-form__button {
+    width: 10%;
+}
+
+.reset-form__button-submit {
+    padding: 5px 10px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    background: #c09a6b;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.admin-table {
+    margin: 30px auto;
+    width: 80%;
+    border: 1px solid #Ddd;
 }
