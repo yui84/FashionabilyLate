@@ -99,13 +99,13 @@
                         <span class="form__label--required">※</span>
                     </div>
                     <div class="form__group-content">
-                        <div class="form__input--text-tel">
-                            <input type="text" name="phone_area_code" maxlength="3" placeholder="080" value="{{ old('phone_area_code') }}">ー
-                            <input type="text" name="phone_prefix" maxlength="4" placeholder="1234" value="{{ old('phone_prefix') }}">ー
-                            <input type="text" name="phone_line_number" maxlength="4" placeholder="5678" value="{{ old('phone_line_number') }}">
+                        <div class="form__input--text">
+                            <input type="tell" name="tell" placeholder="08012345678" value="{{ old('tell') }}">
                         </div>
                         <div class="form__error">
-                            <!--後でエラー入力-->
+                            @error('tell')
+                            {{ $message }}
+                            @enderror
                         </div>
                     </div>
                 </div>

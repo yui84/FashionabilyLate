@@ -70,10 +70,8 @@
                         <!--電話番号-->
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">電話番号</th>
-                            <td class="confirm-table__text-phone">
-                                <input type="text" name="phone_area_code" value="{{ $contact['phone_area_code'] }}" readonly>
-                                <input type="text" name="phone_prefix" value="{{ $contact['phone_prefix'] }}" readonly>
-                                <input type="text" name="phone_line_number" value="{{ $contact['phone_line_number'] }}" readonly>
+                            <td class="confirm-table__text">
+                                <input type="tell" name="tell" value="{{ $contact['tell'] }}" readonly>
                             </td>
                         </tr>
 
@@ -97,14 +95,13 @@
                         <tr class="confirm-table__row">
                             <th class="confirm-table__header">お問い合わせの種類</th>
                             <td class="confirm-table__text">
-                                <input type="hidden" name="id" value="{{ $contact['category_id'] }}" readonly>
-                                <?php
-                                foreach ($categories as $category) {
-                                    if ($contact['category_id'] == $category['id']){
-                                        echo $category['content'];
-                                    }
-                                }
-                                ?>
+                                <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
+                                <input type="text" name="content"
+                                @foreach ($categories as $category)
+                                    @if ($contact['category_id'] == $category['id'])
+                                        value="{{$category['content']}}"
+                                    @endif
+                                @endforeach readonly>
                             </td>
                         </tr>
 

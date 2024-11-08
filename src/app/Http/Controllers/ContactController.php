@@ -19,13 +19,14 @@ class ContactController extends Controller
     {
         $categories = Category::all();
 
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'phone_area_code', 'phone_prefix', 'phone_line_number', 'address', 'building', 'category_id', 'detail']);
+        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell', 'address', 'building', 'category_id', 'detail']);
         return view('confirm', compact('contact', 'categories'));
     }
 
-    public function thanks()
+    public function store(Request $request)
     {
-        $contact = (['tell' => $request->phone_area_code . $request->phone_prefix . $request->phone_line_number] + $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail']));
+        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tell' ,'address', 'building', 'category_id', 'detail']);
+        Contact::create($contact);
         return view('thanks');
     }
 }
