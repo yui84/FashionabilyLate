@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [ContactController::class, 'admin']);
 });
 
+Route::get('/admin/search', [ContactController::class, 'search']);
+
 //問い合わせフォーム表示
 Route::get('/', [ContactController::class, 'index']);
 
