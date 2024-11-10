@@ -113,8 +113,7 @@
                     <form class="detail-form">
                         <div class="detail-form__item">
                             <td class="detail-form__item-name">
-                                <p class="detail-form__item--name">{{ $contact['first_name'] }}</p>
-                                <p class="detail-form__item--name">{{ $contact['last_name'] }}</p>
+                                <p class="detail-form__item--name">{{ $contact['first_name'] }}<span> </span>{{ $contact['last_name'] }}</p>
                             </td>
                             <td class="detail-form__item-name">
                                 <p class="detail-form__item--gender">
@@ -133,13 +132,13 @@
                             <td class="detail-form__item-name">
                                 <p class="detail-form__item--cat">{{ $contact['category']['content']}}</p>
                             </td>
+                            
                         </div>
                         <td class="detail-form__button">
                             <button wire:click="openModal()" type="button" class="detail-form__button-submit">
                                 詳細
                             </button>
 
-                            
                             <div class="modal">
                                 <div class="modal-content">
                                     <button wire:click="closeModal()" class="modal-close" type="button">×</button>
@@ -186,15 +185,16 @@
                                             <td class="modal-table__data">{{ $contact['detail'] }}</td>
                                         </tr>
                                     </table>
-                                    <form class="delete-form" action="/delete" method="post">
+                                    <form class="delete-form" action="" method="">
                                     @method('DELETE')
                                     @csrf
-                                        <input type="hidden" name="" value="{{ $contact['id'] }}">
-                                        <button class="delete-button">削除</button>
+                                        <div class="delete-form__button">
+                                            <input type="hidden" name="id" value="{{ $contact['id'] }}">
+                                            <button class="delete-form__buttonsubmit" type="submit">削除</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
-                            
                         </td>
                     </form>
                 </div>

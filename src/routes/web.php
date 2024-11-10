@@ -20,7 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [ContactController::class, 'admin']);
 });
 
+//検索機能
 Route::get('/admin/search', [ContactController::class, 'search']);
+
+//削除機能
 
 //問い合わせフォーム表示
 Route::get('/', [ContactController::class, 'index']);
