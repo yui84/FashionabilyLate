@@ -33,7 +33,6 @@ class ContactController extends Controller
 
     public function admin()
     {
-        $contacts = Contact::Paginate(7);
         $contacts = Contact::with('category')->get();
         $categories = Category::all();
 

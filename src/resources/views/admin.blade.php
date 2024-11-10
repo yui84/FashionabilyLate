@@ -44,21 +44,11 @@
                 @csrf
                 <div class="search-form__item">
                     <input class="search-form__item-input--text" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}">
-                    <select class="search-form__iem-select--gen" name="gender">
+                    <select class="search-form__iem-select--gen" name="gender" id="gender">
                         <option value="">性別</option>
-                        @foreach ($contacts as $contact)
-                        <option value="{{ $contact['gender'] }}">
-                        <?php
-                            if ($contact['gender'] == '1') {
-                                echo '男性';
-                            }elseif ($contact['gender'] == '2') {
-                                echo '女性';
-                            }else {
-                                echo 'その他';
-                            }
-                        ?>
-                        </option>
-                        @endforeach
+                        <option value="1">男性</option>
+                        <option value="2">女性</option>
+                        <option value="3">その他</option>
                     </select>
                     <select class="search-form__iem-select--cat" name="category_id">
                         <option value="">お問い合わせの種類</option>
@@ -81,127 +71,8 @@
                     <input class="reset-form__button-submit" type="submit" value="リセット" name="submit">
                 </div>
             </form>
-            <!--エクスポートの記述まだ-->
-            <div class="export__button">
-                <button class="export__button-submit">エクスポート</button>
-            </div>
-            <!--ページネーションの記述まだ-->
-            <div class="paginate">
-            </div>
-            <!--送られてきた値を表示するテーブル-->
-            <div class="admin-table">
-        <table class="admin-table__inner">
-            <tr class="admin-table__row">
-                <div class="admin-table__header">
-                    <th class="admin-table__header-name">
-                        <span class="admin-table__header-span">お名前</span>
-                    </th>
-                    <th class="admin-table__header-name">
-                        <span class="admin-table__header-span">性別</span>
-                    </th>
-                    <th class="admin-table__header-name">
-                        <span class="admin-table__header-span">メールアドレス</span>
-                    </th>
-                    <th class="admin-table__header-name">
-                        <span class="admin-table__header-span">お問い合わせの種類</span>
-                    </th>
-                </div>
-            </tr>
-        @foreach ($contacts as $contact)
-            <tr class="admin-table__row">
-                <div class="admin-table__item">
-                    <form class="detail-form">
-                        <div class="detail-form__item">
-                            <td class="detail-form__item-name">
-                                <p class="detail-form__item--name">{{ $contact['first_name'] }}<span> </span>{{ $contact['last_name'] }}</p>
-                            </td>
-                            <td class="detail-form__item-name">
-                                <p class="detail-form__item--gender">
-                                    @if ($contact->gender == 1)
-                                    男性
-                                    @elseif ($contact->gender == 2)
-                                    女性
-                                    @else
-                                    その他
-                                    @endif
-                                </p>
-                            </td>
-                            <td class="detail-form__item-name">
-                                <p class="detail-form__item--email">{{ $contact['email'] }}</p>
-                            </td>
-                            <td class="detail-form__item-name">
-                                <p class="detail-form__item--cat">{{ $contact['category']['content']}}</p>
-                            </td>
-                            
-                        </div>
-                        <td class="detail-form__button">
-                            <button wire:click="openModal()" type="button" class="detail-form__button-submit">
-                                詳細
-                            </button>
-
-                            <div class="modal">
-                                <div class="modal-content">
-                                    <button wire:click="closeModal()" class="modal-close" type="button">×</button>
-                                    <table class="modal-table">
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">お名前</th>
-                                            <td class="modal-table__data">{{ $contact['first_name'] }}<span> </span>{{ $contact['last_name' ]}}</td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">性別</th>
-                                            <td class="modal-table__data">
-                                            <input type="hidden" value="{{ $contact['gender'] }}">
-                                                @if ($contact->gender == 1)
-                                                男性
-                                                @elseif ($contact->gender == 2)
-                                                女性
-                                                @else
-                                                その他
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">メールアドレス</th>
-                                            <td class="modal-table__data">{{ $contact['email'] }}</td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">電話番号</th>
-                                            <td class="modal-table__data">{{ $contact['tell'] }}</td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">住所</th>
-                                            <td class="modal-table__data">{{ $contact['address'] }}</td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">建物名</th>
-                                            <td class="modal-table__data">{{ $contact['building'] }}</td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">お問い合わせの種類</th>
-                                            <td class="modal-table__data">{{ $contact['category']['content'] }}</td>
-                                        </tr>
-                                        <tr class="modal-inner">
-                                            <th class="modal-table__title">お問い合わせの内容</th>
-                                            <td class="modal-table__data">{{ $contact['detail'] }}</td>
-                                        </tr>
-                                    </table>
-                                    <form class="delete-form" action="" method="">
-                                    @method('DELETE')
-                                    @csrf
-                                        <div class="delete-form__button">
-                                            <input type="hidden" name="id" value="{{ $contact['id'] }}">
-                                            <button class="delete-form__buttonsubmit" type="submit">削除</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </td>
-                    </form>
-                </div>
-            </tr>
-        @endforeach
-        </table>
-    </div>
+            @livewire('modal')
+        </div>
     </main>
     @endif
     @livewireScripts

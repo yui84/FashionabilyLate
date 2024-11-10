@@ -1,4 +1,12 @@
 <div>
+    <div class="buttons">
+        <div class="export-btn">
+            <button class="export">エクスポート</button>
+        </div>
+        <div class="paginate">
+            {{ $contacts->links() }}
+        </div>
+    </div>
     <div class="admin-table">
         <table class="admin-table__inner">
             <tr class="admin-table__row">
