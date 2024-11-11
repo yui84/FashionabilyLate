@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/search', [ContactController::class, 'search']);
 
 //削除機能
+Route::delete('/admin/delete',[ContactController::class, 'destroy']);
 
 //問い合わせフォーム表示
 Route::get('/', [ContactController::class, 'index']);

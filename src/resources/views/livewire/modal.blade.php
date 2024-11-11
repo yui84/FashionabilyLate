@@ -52,6 +52,7 @@
                             </td>
                         </div>
                         <td class="detail-form__button">
+                            <input type="hidden" name="id" value="{{ $contact['id'] }}">
                             <button wire:click="openModal()" type="button" class="detail-form__button-submit">
                                 詳細
                             </button>
@@ -103,10 +104,10 @@
                                             <td class="modal-table__data">{{ $contact['detail'] }}</td>
                                         </tr>
                                     </table>
-                                    <form class="delete-form" action="/delete" method="post">
+                                    <form class="delete-form" action="/admin/delete" method="post">
                                     @method('DELETE')
                                     @csrf
-                                        <input type="hidden" name="" value="{{ $contact['id'] }}">
+                                        <input type="hidden" name="id" value="{{ $contact['id'] }}">
                                         <button class="delete-button">削除</button>
                                     </form>
                                 </div>
