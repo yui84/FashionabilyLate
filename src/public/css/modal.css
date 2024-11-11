@@ -1,0 +1,96 @@
+.buttons {
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.export-button {
+    width: 15%;
+    height: 40px;
+    background: #ddd;
+}
+
+.export {
+    height: 40px;
+    width: 100%;
+    color: #615724;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #e0c9c0;
+    cursor: pointer;
+}
+
+.paginate nav {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.paginate nav ul {
+    display: flex;
+    list-style: none;
+    height: 30px;
+}
+
+.paginate nav ul li {
+    width: 30px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.paginate nav ul li a {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+
+.paginate nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.paginate nav ul li.active {
+    background-color: #615724;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.admin-table {
+    margin: 30px auto;
+    width: 80%;
+    border: 1px solid #ddd;
+}
+
+.admin-table__inner {
+    width: 100%;
+}
+
+.admin-table__header-name {
+    background: #615724;
+    color: #fff;
+    height: 40px;
+}
+
+.detail-form__item-name {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.detail-form__item-name:last-child {
+    border-bottom: none;
+}
+
+.detail-form__button {
+    text-align: center;
+}
+
+.detail-form__button-submit {
+    padding: 3px 10px;
+    border: 1px solid #e8d4aa;
+    border-radius: 3px;
+    background: #fffaed;
+    color: #e8d4aa;
+    cursor: pointer;
+}

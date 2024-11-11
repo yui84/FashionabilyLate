@@ -1,6 +1,6 @@
 <div>
     <div class="buttons">
-        <div class="export-btn">
+        <div class="export-button">
             <button class="export">エクスポート</button>
         </div>
         <div class="paginate">
@@ -25,14 +25,13 @@
                     </th>
                 </div>
             </tr>
-        @foreach ($contacts as $contact)
+            @foreach ($contacts as $contact)
             <tr class="admin-table__row">
                 <div class="admin-table__item">
                     <form class="detail-form">
                         <div class="detail-form__item">
                             <td class="detail-form__item-name">
-                                <p class="detail-form__item--name">{{ $contact['first_name'] }}</p>
-                                <p class="detail-form__item--name">{{ $contact['last_name'] }}</p>
+                                <p class="detail-form__item--name">{{ $contact['first_name'] }}{{ $contact['last_name'] }}</p>
                             </td>
                             <td class="detail-form__item-name">
                                 <p class="detail-form__item--gender">
@@ -56,7 +55,7 @@
                             <button wire:click="openModal()" type="button" class="detail-form__button-submit">
                                 詳細
                             </button>
-
+                        </td>
                             @if($showModal)
                             <div class="modal">
                                 <div class="modal-content">
@@ -113,11 +112,10 @@
                                 </div>
                             </div>
                             @endif
-                        </td>
                     </form>
                 </div>
             </tr>
-        @endforeach
+            @endforeach
         </table>
     </div>
 </div>
