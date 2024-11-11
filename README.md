@@ -24,7 +24,7 @@ Laravel環境構築
 
 ## ER図
 
-    <img width="690" alt="スクリーンショット 2024-11-11 15 27 59" src="https://github.com/user-attachments/assets/d6b2a181-5c77-437c-b0e0-c691b1eb1592">
+    https://github.com/user-attachments/assets/d6b2a181-5c77-437c-b0e0-c691b1eb1592
 
 
 ## URL

@@ -130,14 +130,6 @@ h1 {
     cursor: pointer;
 }
 
-.modal-close {
-    border: 1px solid #615724;
-    color: #615724;
-    border-radius: 50px;
-    background: #fff;
-    cursor: pointer;
-}
-
 .delete-button {
     padding: 5px 10px;
     color: #fff;
